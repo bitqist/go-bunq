@@ -10,9 +10,9 @@ import (
 
 type companyService service
 
-// GetUserPerson retrieves a signle user company
+// GetUserCompany retrieves a signle user company
 // https://doc.bunq.com/#/user-company/READ_UserCompany
-func (u *companyService) GetUserPerson() (*responseUserCompany, error) {
+func (u *companyService) GetUserCompany() (*responseUserCompany, error) {
 	userID, err := u.client.GetUserID()
 	if err != nil {
 		return nil, err
