@@ -7,6 +7,8 @@ const (
 
 	endpointSessionServerCreate string = "session-server"
 
+	endpointUserCompanyGet string = "user-company/%d"
+
 	endpointUserPersonGet string = "user-person/%d"
 
 	endpointPaymentBatchCreate string = "user/%d/monetary-account/%d/payment-batch"

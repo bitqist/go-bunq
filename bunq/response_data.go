@@ -16,6 +16,12 @@ type responseSessionServer struct {
 	Response []sessionServer
 }
 
+type responseUserCompany struct {
+	Response []struct {
+		UserCompany userCompany
+	}
+}
+
 type responseUserPerson struct {
 	Response []struct {
 		UserPerson userPerson

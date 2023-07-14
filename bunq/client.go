@@ -93,6 +93,7 @@ type Client struct {
 	deviceServer            *deviceServerService
 	sessionServer           *sessionServerService
 	UserService             *userService
+	CompanyService          *companyService
 	AccountService          *accountService
 	PaymentService          *paymentService
 	ScheduledPaymentService *scheduledPaymentService
@@ -169,6 +170,7 @@ func (c *Client) registerServices() {
 	c.deviceServer = (*deviceServerService)(&c.common)
 	c.sessionServer = (*sessionServerService)(&c.common)
 	c.UserService = (*userService)(&c.common)
+	c.CompanyService = (*companyService)(&c.common)
 	c.PaymentService = (*paymentService)(&c.common)
 	c.ScheduledPaymentService = (*scheduledPaymentService)(&c.common)
 	c.AccountService = (*accountService)(&c.common)
