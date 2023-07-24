@@ -286,13 +286,17 @@ func (c *Client) do(r *http.Request) (*http.Response, error) {
 		}
 
 		errResponse := createErrorResponse(res)
-
-		return nil, fmt.Errorf(
-			"bunq: http request failed with status %d and description %q and response header: %q",
+		errMessage := fmt.Sprintf(
+			"bunq: http request failed with status %d response header %q",
 			res.StatusCode,
-			errResponse.Error[0].ErrorDescription,
 			res.Header.Get("X-Bunq-Client-Response-Id"),
 		)
+
+		if len(errResponse.Error) > 0 {
+			errMessage = fmt.Sprintf("%s and description %q", errMessage, errResponse.Error[0].ErrorDescription)
+		}
+
+		return nil, fmt.Errorf(errMessage)
 	}
 
 	err = c.verifyResponse(r, res)
